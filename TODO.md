@@ -1,0 +1,6 @@
+- [x] Version Control
+- [x] Build Automation Tools (Maven)
+- [ ] Styling || Static Code Checks
+- [ ] Logging
+- [ ] Unit Tests
+- [ ] CI/CD (Pipelines)
