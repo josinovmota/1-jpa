@@ -2,10 +2,7 @@ package com.nemesis.training;
 
 import com.nemesis.training.types.Phone;
 
-/**
- * Hello world!
- *
- */
+
 public class App 
 {
     public static void main( String[] args )

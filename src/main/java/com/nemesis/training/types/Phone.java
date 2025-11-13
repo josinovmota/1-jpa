@@ -1,25 +1,33 @@
 package com.nemesis.training.types;
 
 public class Phone {
-    String phone;
+    private final String phone;
 
     public Phone(String phone) {
-        this.phone = validate(phone);
+        this.phone = normalize(phone);
+        validate(this.phone);
     }
 
-    private String validate(String phone) {
 
-        // +55 85 98191 0431 -> +5585981910431
-        phone = phone.replaceAll("[^+\\d]", "");
+    private String normalize(String phone) {
+        // Phone model: Brazilian Format +XX (XX) XXXXX-XXXX Input should auto-format +, () and -
 
-        if (!Character.toString(phone.charAt(0)).equals("+")) {
-            throw new IllegalArgumentException("ERROR: The '+' symbol was not found in the beginning of the Country Code");
-        }
-
-        if (phone.length() != 14) {
-            throw new IllegalArgumentException("ERROR: Phone number must follow the Brazilian Number format: '+55 (XX) 9XXXX-XXXX'");
-        }
+        phone = phone.replaceAll("[^\\d]", "");
 
         return phone;
+    }
+
+
+    private void validate(String phone) {
+
+        if (phone.length() != 13) {
+            throw new IllegalArgumentException("ERROR: Phone number must follow the Brazilian Number format with 13 Digits. " +
+                    "Your phone number has '" + phone.length() + "' Digits, be sure to enter '13' Digits");
+        }
+    }
+
+
+    public String value() {
+        return this.phone;
     }
 }
