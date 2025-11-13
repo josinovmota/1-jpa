@@ -1,8 +1,7 @@
 package com.nemesis.training.converters;
 
-import com.nemesis.training.types.Email;
 import com.nemesis.training.types.TotalPrice;
-import jakarta.persistence.Converter;
+import javax.persistence.Converter;
 
 import javax.persistence.AttributeConverter;
 
