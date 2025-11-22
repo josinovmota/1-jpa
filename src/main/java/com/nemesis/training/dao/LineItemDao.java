@@ -1,50 +1,49 @@
 package com.nemesis.training.dao;
 
-import com.nemesis.training.entity.Customer;
-
+import com.nemesis.training.entity.LineItem;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+
 import java.util.List;
 import java.util.Optional;
 
-public class CustomerDao implements Dao<Customer>{
+public class LineItemDao implements Dao<LineItem> {
 
     private final EntityManager em;
 
-    public CustomerDao(EntityManagerFactory emf) {
+    public LineItemDao(EntityManagerFactory emf) {
         this.em = emf.createEntityManager();
     }
 
     @Override
-    public Optional<Customer> get(long id) {
-        Customer result = em.find(Customer.class, id);
+    public Optional<LineItem> get(long id) {
+        LineItem result = em.find(LineItem.class, id);
         return Optional.ofNullable(result);
     }
 
     @Override
-    public List<Customer> getAll() {
-        return em.createQuery("FROM Customer", Customer.class).getResultList();
+    public List<LineItem> getAll() {
+        return em.createQuery("FROM LineItem ", LineItem.class).getResultList();
     }
 
     @Override
-    public void save(Customer customer) {
+    public void save(LineItem lineItem) {
         em.getTransaction().begin();
-        em.persist(customer);
+        em.persist(lineItem);
         em.getTransaction().commit();
     }
 
     @Override
-    public void update(Customer customer, String[] params) {
+    public void update(LineItem lineItem, String[] params) {
         em.getTransaction().begin();
-        em.merge(customer);
+        em.merge(lineItem);
         em.getTransaction().commit();
     }
 
     @Override
-    public void delete(Customer customer) {
+    public void delete(LineItem lineItem) {
         em.getTransaction().begin();
-        em.remove(customer);
+        em.remove(lineItem);
         em.getTransaction().commit();
-
     }
 }

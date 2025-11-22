@@ -1,15 +1,15 @@
 package com.nemesis.training.converters;
 
 import com.nemesis.training.types.Price;
-import javax.persistence.AttributeConverter;
-import javax.persistence.Converter;
+import jakarta.persistence.AttributeConverter;
+import jakarta.persistence.Converter;
 
 @Converter(autoApply = true)
 public class PriceConverter implements AttributeConverter<Price, String> {
 
     @Override
     public String convertToDatabaseColumn(Price price) {
-        return price == null ? null : price.toString();
+        return price == null ? null : price.value();
     }
 
     @Override

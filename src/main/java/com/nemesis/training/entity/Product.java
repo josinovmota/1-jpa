@@ -2,11 +2,12 @@ package com.nemesis.training.entity;
 
 import com.nemesis.training.types.Price;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "products")
 public class Product {
 
     @Id
@@ -25,5 +26,13 @@ public class Product {
     private String currency;
 
     @OneToMany(mappedBy = "product",cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Product> product = new ArrayList<>();
+    private List<LineItem> lineItems = new ArrayList<>();
+
+    public void setPrice(String Price) {
+        this.price = new Price(Price);
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
 }

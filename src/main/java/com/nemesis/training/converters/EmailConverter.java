@@ -3,7 +3,7 @@ package com.nemesis.training.converters;
 import jakarta.persistence.Converter;
 import com.nemesis.training.types.Email;
 
-import javax.persistence.AttributeConverter;
+import jakarta.persistence.AttributeConverter;
 
 @Converter(autoApply = true)
 public class EmailConverter implements AttributeConverter<Email, String> {
@@ -19,3 +19,5 @@ public class EmailConverter implements AttributeConverter<Email, String> {
     }
 
 }
+
+

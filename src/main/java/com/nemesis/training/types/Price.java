@@ -3,7 +3,7 @@ package com.nemesis.training.types;
 import java.math.BigDecimal;
 
 public class Price {
-    // Should auto-format like this: "R$ XX,XX"
+
     private final BigDecimal price;
 
     public Price(String price) {
@@ -36,7 +36,7 @@ public class Price {
     }
 
 
-    public BigDecimal value() {
-        return this.price;
+    public String value() {
+        return this.price.toPlainString();
     }
 }

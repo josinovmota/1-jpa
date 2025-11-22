@@ -3,11 +3,12 @@ package com.nemesis.training.entity;
 import com.nemesis.training.types.Email;
 import com.nemesis.training.types.Phone;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "customers")
 public class Customer {
 
     @Id
@@ -25,5 +26,9 @@ public class Customer {
     private Email email;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Orders> orders = new ArrayList<>();
+    private List<Order> orders = new ArrayList<>();
+
+    public void setName (String name) {
+        this.name = name;
+    }
 }

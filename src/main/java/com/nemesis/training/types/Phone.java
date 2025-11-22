@@ -10,7 +10,6 @@ public class Phone {
 
 
     private String normalize(String phone) {
-        // Phone model: Brazilian Format +XX (XX) XXXXX-XXXX Input should auto-format +, () and -
 
         phone = phone.replaceAll("[^\\d]", "");
 
